@@ -1,0 +1,29 @@
+apiVersion: storage.k8s.io/v1
+kind: CSINode
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"storage.k8s.io/v1","kind":"CSINode","metadata":{"annotations":{"storage.alpha.kubernetes.io/migrated-plugins":"kubernetes.io/aws-ebs,kubernetes.io/azure-disk,kubernetes.io/azure-file,kubernetes.io/cinder,kubernetes.io/gce-pd"},"creationTimestamp":"2024-05-31T14:40:37Z","name":"node1","ownerReferences":[{"apiVersion":"v1","kind":"Node","name":"node1","uid":"1d89f912-4131-4922-a115-6b92e29fa42b"}],"resourceVersion":"102464","uid":"eec0b2d6-296a-491e-bde7-05e272186da8"},"spec":{"drivers":[{"name":"efs.csi.aws.com","nodeID":"i-048f9174665e43912","topologyKeys":null},{"allocatable":{"count":25},"name":"ebs.csi.aws.com","nodeID":"i-048f9174665e43912","topologyKeys":["kubernetes.io/os","topology.ebs.csi.aws.com/zone","topology.kubernetes.io/zone"]}]}}
+    storage.alpha.kubernetes.io/migrated-plugins: kubernetes.io/aws-ebs,kubernetes.io/azure-disk,kubernetes.io/azure-file,kubernetes.io/cinder,kubernetes.io/gce-pd
+  creationTimestamp: "2024-05-31T14:40:37Z"
+  name: node1
+  ownerReferences:
+  - apiVersion: v1
+    kind: Node
+    name: node1
+    uid: 1d89f912-4131-4922-a115-6b92e29fa42b
+  resourceVersion: "112916"
+  uid: eec0b2d6-296a-491e-bde7-05e272186da8
+spec:
+  drivers:
+  - name: efs.csi.aws.com
+    nodeID: i-048f9174665e43912
+    topologyKeys: null
+  - allocatable:
+      count: 25
+    name: ebs.csi.aws.com
+    nodeID: i-048f9174665e43912
+    topologyKeys:
+    - kubernetes.io/os
+    - topology.ebs.csi.aws.com/zone
+    - topology.kubernetes.io/zone
